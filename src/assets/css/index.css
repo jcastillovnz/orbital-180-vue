@@ -1,0 +1,30 @@
+
+
+
+html{
+    cursor: pointer;
+  }
+  body{
+    background-color: transparent;
+    overflow:hidden;
+    height: 100%;
+    }
+
+    
+  .container-wrapper{
+ margin: auto;
+ display: block;
+    }
+
+
+    
+    .container .renders {
+        width: 85%;
+
+        margin-left: 2%;
+    }
+
+
+
+
+  
