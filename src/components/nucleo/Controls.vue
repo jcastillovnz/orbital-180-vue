@@ -1,7 +1,12 @@
 <template>
-  <div >
+  <div style="" >
 
-<div class="btn-group" style="   z-index:1000; margin-top:-70px;   pointer-events: none; margin-left:45%;">
+<div class="" style="    position: fixed;
+  bottom: 0;
+  margin-bottom:10px;
+  right: 47%;
+  width: 600;
+ z-index:1000; margin-top:-70px;   pointer-events: none; ">
 <button style="pointer-events: auto;"  @click="right(spinner.current + 1)">
  < 
 </button>

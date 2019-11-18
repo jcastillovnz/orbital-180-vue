@@ -18,7 +18,6 @@
 
 
 
-<Controls  style="position:fixed; background-color:red;" :spinner="spinner" :infinite="infinite"/>
 
 
 
@@ -29,6 +28,7 @@
 
     
  
+<Controls  :spinner="spinner" :infinite="infinite"/>
 
 
 
