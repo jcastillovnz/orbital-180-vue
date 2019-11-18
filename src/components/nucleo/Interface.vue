@@ -29,7 +29,7 @@
 <script>
 
 export default {
-  name: "Controls",
+  name: "Interface",
 
   props: {
 

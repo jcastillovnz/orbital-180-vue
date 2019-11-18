@@ -28,7 +28,7 @@
 
     
 
- <Controls @next="next"  @prev="prev"  :spinner="spinner" :infinite="infinite"/>
+ <Interface @next="next"  @prev="prev"  :spinner="spinner" :infinite="infinite"/>
  
 
 
@@ -38,12 +38,12 @@
 
 <script>
 import Preload from "./Preload.js";
-import Controls from "./Controls.vue";
+import Interface from "./Interface.vue";
 
 export default {
   name: "Rotation",
     components: {
-Controls
+Interface
   },
 
   props: {
