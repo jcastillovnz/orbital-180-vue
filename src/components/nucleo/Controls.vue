@@ -7,10 +7,10 @@
   right: 47%;
   width: 600;
  z-index:1000; margin-top:-70px;   pointer-events: none; ">
-<button style="pointer-events: auto;"  @click="right(spinner.current + 1)">
+<button style="pointer-events: auto;" @click="prev()" >
  < 
 </button>
-<button style="pointer-events: auto;" @click="left(spinner.current - 1)"   >
+<button style="pointer-events: auto;"  @click="next()  "  >
 > 
 </button>
 
@@ -48,6 +48,9 @@ export default {
   data() {
     return {
       imagesPreloaded: false,
+      zoom: {
+       height:99
+      }
   
     };
   },
@@ -64,21 +67,11 @@ this.changeZoom(-10);
 changeZoom(amount) { 
 
 var currheight = document.querySelector('.renders').height;
-
-console.log("curren heigth ", currheight)
-
 if (currheight === 600  ) return false;
   else {
 
-
 var newheight =  parseInt(currheight)  + amount;
-
-console.log("new height ", newheight)
-
-document.querySelector('.renders').height = newheight;
-
-
-
+document.querySelector('.renders').style.height = newheight +'px';
 
   }
 
@@ -89,61 +82,17 @@ document.querySelector('.renders').height = newheight;
 
 
 
-right(n) {
+prev(n) {
 
-
-if(this.infinite===true) {
-
-if(this.spinner.current< this.spinner.size ) {
-this.spinner.current = parseInt(n);
-this.spinner.currentPath = this.images[n - 1];
-}else{
-this.spinner.current =1
-this.spinner.currentPath = this.images[1 - 1]
-}
- }
-
-if(this.infinite===false)  {
-
-
-if( this.spinner.current<this.spinner.size  ) {
-this.spinner.current = parseInt(n);
-this.spinner.currentPath = this.images[n - 1];
-}
-
-
-
-
- }
-
-
+this.$emit('prev')
     },
-  left(n) {
-
-if(this.infinite===true) {
+ next(n) {
 
 
-if(this.spinner.current>1 ) {
-this.spinner.current = parseInt(n);
-this.spinner.currentPath = this.images[n - 1];
-}
-else{
-this.spinner.current = 30
-this.spinner.currentPath = this.images[30 - 1]
-}
+this.$emit('next')
 
 
 
-
- }
-
-if(this.infinite===false)  {
-
-if( this.spinner.current> 1  ) {
-this.spinner.current = parseInt(n);
-this.spinner.currentPath = this.images[n - 1];
-}
-}
 
     },
 

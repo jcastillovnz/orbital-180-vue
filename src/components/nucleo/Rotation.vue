@@ -27,9 +27,9 @@
 
 
     
- 
-<Controls  :spinner="spinner" :infinite="infinite"/>
 
+ <Controls @next="next"  @prev="prev"  :spinner="spinner" :infinite="infinite"/>
+ 
 
 
 
@@ -168,9 +168,8 @@ Controls
 
 
 },
-right(n) {
-
-
+next() {
+var n = this.spinner.current + 1
 if(this.infinite===true) {
 
 if(this.spinner.current< this.spinner.size ) {
@@ -197,7 +196,9 @@ this.spinner.currentPath = this.images[n - 1];
 
 
     },
-  left(n) {
+prev() {
+
+var n = this.spinner.current - 1
 
 if(this.infinite===true) {
 
