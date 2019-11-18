@@ -2,7 +2,7 @@
   <div >
 
 
-    <Rotation :class="''"  :images="imgs" :infinite="true" :mouseWheel="false" :speed="5" :slider="false">
+    <Rotation :class="''"  :images="imgs" :infinite="true" :mouseWheel="false" :speed="5" :slider="true">
  <Loader/>
     </Rotation>
 

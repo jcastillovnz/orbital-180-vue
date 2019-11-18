@@ -13,6 +13,10 @@
         @touchend="handleTouchEnd"
         @touchmove="handleTouchMove"
       />
+
+
+
+
       <input
         type="range"
         tabindex="1"
@@ -24,18 +28,33 @@
         @input="handleSlider"
         v-if="slider"
       />
+
+
     </div>
-    <slot v-else>
-      lorem
-    </slot>
+
+
+
+    
+ 
+<Controls :spinner="spinner" :infinite="infinite"/>
+
+
+
+
+
+
   </div>
 </template>
 
 <script>
-import PreloadImages from "./PreloadImages.js";
+import Preload from "./Preload.js";
+import Controls from "./Controls.vue";
 
 export default {
   name: "Rotation",
+    components: {
+Controls
+  },
 
   props: {
     images: {
@@ -93,7 +112,7 @@ export default {
   },
 
   beforeMount() {
-    PreloadImages(this.images).then(() => (this.imagesPreloaded = true));
+   Preload(this.images).then(() => (this.imagesPreloaded = true));
   },
 
   mounted() {
@@ -147,9 +166,76 @@ export default {
     },
 
     handleSlider(event) {
+
       this.spinner.current = parseInt(event.target.value);
       this.spinner.currentPath = this.images[event.target.value - 1];
     },
+  zoomIn(n) { 
+
+
+},
+  zoomOut(n) { 
+
+
+},
+right(n) {
+
+
+if(this.infinite===true) {
+
+if(this.spinner.current< this.spinner.size ) {
+this.spinner.current = parseInt(n);
+this.spinner.currentPath = this.images[n - 1];
+}else{
+this.spinner.current =1
+this.spinner.currentPath = this.images[1 - 1]
+}
+ }
+
+if(this.infinite===false)  {
+
+
+if( this.spinner.current<this.spinner.size  ) {
+this.spinner.current = parseInt(n);
+this.spinner.currentPath = this.images[n - 1];
+}
+
+
+
+
+ }
+
+
+    },
+  left(n) {
+
+if(this.infinite===true) {
+
+
+if(this.spinner.current>1 ) {
+this.spinner.current = parseInt(n);
+this.spinner.currentPath = this.images[n - 1];
+}
+else{
+this.spinner.current = 30
+this.spinner.currentPath = this.images[30 - 1]
+}
+
+
+
+
+ }
+
+if(this.infinite===false)  {
+
+if( this.spinner.current> 1  ) {
+this.spinner.current = parseInt(n);
+this.spinner.currentPath = this.images[n - 1];
+}
+}
+
+    },
+
 
     handleMouseDown() {
       this.mouse.isMoving = true;
@@ -190,6 +276,7 @@ export default {
     },
 
     handleMovement(delta) {
+
       /**
        * User is moving forward
        */

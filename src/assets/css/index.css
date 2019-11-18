@@ -1,4 +1,4 @@
-
+@import '/src/assets/css/buttons.css';
 
 
 html{
@@ -19,11 +19,14 @@ html{
 
 
     .container .renders {
-        width: 85%;
+        width: 88%;
 margin-left: 7%;
     }
 
 
 
+    .btn-group {
+        position: fixed; z-index:1000; margin-top:-70px;   pointer-events: none; margin-left:45%;
+        }
 
   
