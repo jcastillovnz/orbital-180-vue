@@ -13,25 +13,8 @@
         @touchend="handleTouchEnd"
         @touchmove="handleTouchMove"
       />
-
-
-
-
-
-
-
-
-
     </div>
-
-
-
-    
-
  <Interface @next="next"  @prev="prev"  :spinner="spinner" :infinite="infinite"/>
- 
-
-
 
   </div>
 </template>
@@ -54,7 +37,7 @@ Interface
     infinite: {
       type: Boolean,
       required: false,
-      default: () => true
+      default: () => false
     },
     touchDrag: {
       type: Boolean,
@@ -160,14 +143,6 @@ Interface
       this.spinner.current = parseInt(event.target.value);
       this.spinner.currentPath = this.images[event.target.value - 1];
     },
-  zoomIn(n) { 
-
-
-},
-  zoomOut(n) { 
-
-
-},
 next() {
 var n = this.spinner.current + 1
 if(this.infinite===true) {
@@ -180,29 +155,17 @@ this.spinner.current =1
 this.spinner.currentPath = this.images[1 - 1]
 }
  }
-
 if(this.infinite===false)  {
-
-
 if( this.spinner.current<this.spinner.size  ) {
 this.spinner.current = parseInt(n);
 this.spinner.currentPath = this.images[n - 1];
 }
-
-
-
-
- }
-
-
-    },
+}
+},
 prev() {
 
 var n = this.spinner.current - 1
-
 if(this.infinite===true) {
-
-
 if(this.spinner.current>1 ) {
 this.spinner.current = parseInt(n);
 this.spinner.currentPath = this.images[n - 1];
@@ -211,10 +174,6 @@ else{
 this.spinner.current = 30
 this.spinner.currentPath = this.images[30 - 1]
 }
-
-
-
-
  }
 
 if(this.infinite===false)  {
@@ -269,7 +228,7 @@ this.spinner.currentPath = this.images[n - 1];
     handleMovement(delta) {
 
       /**
-       * User is moving forward
+       * Avanza
        */
       if (delta >= 0) {
         if (
@@ -286,7 +245,7 @@ this.spinner.currentPath = this.images[n - 1];
         }
       } else {
         /**
-         * User is moving backward
+         * Retrocede
          */
         if (this.spinner.current >= 0 && this.spinner.current - 1 > 0) {
           this.spinner.current--;
