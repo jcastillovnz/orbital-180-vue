@@ -22,7 +22,7 @@
 <script>
 import Preload from "./Preload.js";
 import Interface from "./Interface.vue";
-
+import loader from "./../loader";
 export default {
   name: "Rotation",
     components: {
