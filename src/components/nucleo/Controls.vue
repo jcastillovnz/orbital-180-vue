@@ -1,7 +1,7 @@
 <template>
   <div >
 
-<div class="btn-group" style="  position: fixed; z-index:1000; margin-top:-70px;   pointer-events: none; margin-left:45%;">
+<div class="btn-group" style="   z-index:1000; margin-top:-70px;   pointer-events: none; margin-left:45%;">
 <button style="pointer-events: auto;"  @click="right(spinner.current + 1)">
  < 
 </button>
@@ -58,18 +58,20 @@ this.changeZoom(-10);
 },
 changeZoom(amount) { 
 
+var currheight = document.querySelector('.renders').height;
 
+console.log("curren heigth ", currheight)
 
 if (currheight === 600  ) return false;
   else {
 
 
-var currheight =  $('.renders').css("height");
-
 var newheight =  parseInt(currheight)  + amount;
-alert(newheight)
- $('.renders').css("height" , newheight );
- $('.renders').css("z-index" , "0" );
+
+console.log("new height ", newheight)
+
+document.querySelector('.renders').height = newheight;
+
 
 
 

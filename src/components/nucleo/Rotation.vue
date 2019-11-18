@@ -17,17 +17,10 @@
 
 
 
-      <input
-        type="range"
-        tabindex="1"
-        min="1"
-        :max="spinner.size"
-        :value="spinner.current"
-        class="spinner-slider"
-        :class="sliderClass"
-        @input="handleSlider"
-        v-if="slider"
-      />
+
+<Controls  style="position:fixed; background-color:red;" :spinner="spinner" :infinite="infinite"/>
+
+
 
 
     </div>
@@ -36,9 +29,6 @@
 
     
  
-<Controls :spinner="spinner" :infinite="infinite"/>
-
-
 
 
 
