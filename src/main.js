@@ -13,7 +13,7 @@ const routes = [
 ]
 
 const router = new VueRouter({
-  base: '/orbital-180-vue/',
+  base: window.location.pathname,
   routes // 
 }) 
 
