@@ -11,31 +11,17 @@ html{
     }
 
 
-
-
  .renders {
   
     width: auto;
     height:99vh;
-   
-
-
     margin: 0;
     position: absolute;
     top: 50%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-            }
+    transform: translate(-50%, -50%); }
         
-
-
-
-    .btn-group {
-        position: fixed; z-index:1000; margin-top:-70px;   pointer-events: none; margin-left:45%;
-        }
-
-  
         .control{
             width:25px;
             height:25px;
@@ -48,3 +34,20 @@ html{
             -webkit-transition: background-image 0.7s; /* Safari */
             transition: background-image 0.7s;
         }
+
+
+        .turn-message{
+            display:none;
+            color:white;
+            width:100%;
+            height:100%;
+            text-align: center;
+            margin-top:calc(50vh - 1rem);
+        }
+
+
+@media only screen and (min-device-width: 320px) and (orientation: portrait) {
+    .turn-message{
+    display:block;
+    }
+    }

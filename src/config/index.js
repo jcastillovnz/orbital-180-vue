@@ -1,6 +1,7 @@
-/* Parametros de configuracion */
+/* Parametros de configuracion globales*/
 const config = {
-imgs: 30
+imgs: 30,       ///Numero de imagenes
+infinite:false, //      Giro infinito
 }
 
 export default config

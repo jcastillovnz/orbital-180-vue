@@ -7,7 +7,7 @@ module.exports = {
     path: path.resolve(__dirname, './dist'),
 
     publicPath: process.env.NODE_ENV === 'production'
-    ? '/my-project/'
+    ? ''
     : '/',
 
 
@@ -48,7 +48,7 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js'
     },
-    extensions: ['*', '.js', '.vue', '.json', '.jpg', '.png']
+    extensions: ['*', '.js', '.vue', '.json', '.jpg',]
   },
   devServer: {
     

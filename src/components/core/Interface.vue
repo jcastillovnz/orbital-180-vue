@@ -1,14 +1,8 @@
 <template>
-  <div style="" >
-
-<div class="" style="    position: fixed;
-  bottom: 0;
-  margin-bottom:10px;
-  right: 47%;
-  width: 600;
- z-index:1000; margin-top:-70px;   pointer-events: none; ">
+ 
+<div class="btn-group" >
 <button style="pointer-events: auto;" @click="prev()" >
- < 
+ <
 </button>
 <button style="pointer-events: auto;"  @click="next()  "  >
 > 
@@ -23,7 +17,7 @@
 
 </div>
 
-</div>
+
 </template>
 
 <script>
