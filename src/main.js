@@ -1,26 +1,13 @@
 import Vue from 'vue'
 import App from './App.vue'
-
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
-
-import Etage1 from './containers/etage1/etage1.vue' 
-
-
-const routes = [
-  { path: '/', component: Etage1 },
-
-]
+import routes from './routes/'
 
 const router = new VueRouter({
   mode: 'history',
-  base: window.location.pathname,
   routes // 
 }) 
-
-
-
-
 
 new Vue({
   router,

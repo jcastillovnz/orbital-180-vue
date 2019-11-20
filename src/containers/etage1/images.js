@@ -1,6 +1,9 @@
 
-import config from "./../../config";
-const images = [...Array(config.imgs)].map(
+import  config from "./../../config";
+const {imgs} = config
+
+
+const images = [...Array(imgs)].map(
   (_, i) =>
     `/src/assets/imgs/renders/${i}.jpg`
 );

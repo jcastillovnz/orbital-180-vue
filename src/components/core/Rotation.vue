@@ -1,7 +1,7 @@
 <template>
   <div class="container-wrapper" ref="componentContainer">
     <div class="container" v-if="imagesPreloaded">
-      <img class="img-frames renders "
+      <img class="img-frames renders"
         tabindex="1"
         draggable="false"
         :src="spinner.currentPath"
@@ -15,14 +15,16 @@
       />
     </div>
  <Interface @next="next"  @prev="prev"  :spinner="spinner" :infinite="infinite"/>
-
   </div>
 </template>
-
 <script>
+
+import  config from "./../../config";
 import Preload from "./Preload.js";
 import Interface from "./Interface.vue";
 import loader from "./../loader";
+const {infinite} = config
+
 export default {
   name: "Rotation",
     components: {
@@ -37,7 +39,7 @@ Interface
     infinite: {
       type: Boolean,
       required: false,
-      default: () => false
+      default: () => infinite
     },
     touchDrag: {
       type: Boolean,
@@ -54,16 +56,7 @@ Interface
       required: false,
       default: () => true
     },
-    slider: {
-      type: Boolean,
-      required: false,
-      default: () => false
-    },
-    sliderClass: {
-      type: String,
-      required: false,
-      default: () => ""
-    }
+
   },
 
   data() {
