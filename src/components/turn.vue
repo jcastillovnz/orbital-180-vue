@@ -1,6 +1,6 @@
 <template>
-<div class="turn-message">
-<img   width="50" src="./assets/imgs/icons/turn.svg"> 
+<div class="turn-message"> <h1>Hola</h1>
+<img   width="100" src="./assets/imgs/icons/turn.svg"> 
 </div>
 </template>
 

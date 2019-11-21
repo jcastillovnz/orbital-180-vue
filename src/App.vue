@@ -1,8 +1,9 @@
 <template>
 <div >
-<router-view></router-view>
-<div class="turn-message">
-<img   width="50" src="./assets/imgs/icons/turn.svg"> 
+
+<router-view class="view"></router-view>
+<div class="turn-message"> <h1>Hola</h1>
+<img   width="100" src="./assets/imgs/icons/turn.svg"> 
 </div>
 </div>
 </template>
@@ -10,7 +11,7 @@
 @import './assets/css/index.css';
 </style>
 <script>
-
+/* import turn from './components/turn.vue' */
 export default {
   name: "App",
 };

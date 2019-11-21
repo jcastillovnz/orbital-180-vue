@@ -14,7 +14,7 @@ html{
  .renders {
   
     width: auto;
-    height:99vh;
+    height:98vh;
     margin: 0;
     position: absolute;
     top: 50%;
@@ -37,12 +37,16 @@ html{
 
 
         .turn-message{
-            display:none;
+            display:block;
             color:white;
             width:100%;
             height:100%;
             text-align: center;
             margin-top:calc(50vh - 1rem);
+        }
+        .view{
+
+            display: block;
         }
 
 
@@ -50,4 +54,21 @@ html{
     .turn-message{
     display:block;
     }
+
+    .view{
+    display:none;
     }
+
+
+    }
+
+
+    @media screen and (max-width: 500px) /* Mobile */ {
+   .turn-message{
+    display:block;
+
+    }
+      .view{
+    display:none;
+    }
+}
