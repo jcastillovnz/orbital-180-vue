@@ -1,4 +1,5 @@
 <template>
+<div>
   <div class="container-wrapper" ref="componentContainer">
     <div class="container" v-if="imagesPreloaded">
       <img class="img-frames renders"
@@ -14,16 +15,21 @@
         @touchmove="handleTouchMove"
       />
     </div>
- <Interface @next="next"  @prev="prev"  :spinner="spinner" :infinite="infinite"/>
+
+<Interface v-show="buttonsGroup===true" @next="next"  @prev="prev"  :spinner="spinner" :infinite="infinite"/>
+
   </div>
+
+
+</div>
 </template>
 <script>
 
 import  config from "./../../config";
 import Preload from "./Preload.js";
 import Interface from "./Interface.vue";
-import loader from "./../loader";
-const {infinite} = config
+import loaderComponent from "./../loaderComponent";
+const {infinite, buttons} = config
 
 export default {
   name: "Rotation",
@@ -55,6 +61,11 @@ Interface
       type: Boolean,
       required: false,
       default: () => true
+    },
+  buttonsGroup: {
+      type: Boolean,
+      required: false,
+      default: () => buttons
     },
 
   },
