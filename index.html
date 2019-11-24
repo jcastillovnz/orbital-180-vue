@@ -11,13 +11,17 @@
   <body>
     <div id="app"></div>
 
-    <script >
 
+
+<script >
 var BASEURL=  location.pathname;
+var script   = document.createElement("script");
+script.type  = "text/javascript";
+script.src   = BASEURL+'dist/build.js';    // use this for linked script
+document.body.appendChild(script);
+</script>
 
 
-alert("A", uriObj = node.baseURIObject)
-    </script>
-    <script id="build" src="/downloads/visual/dist/build.js"></script>
+
   </body>
 </html>
