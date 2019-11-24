@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+<!--       <base href="http://www.example.com/"> -->
   <meta name="Content-Type" charset="UTF-8">
   <meta name="Content-Language" content="fr">   
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,6 +10,14 @@
   </head>
   <body>
     <div id="app"></div>
-    <script src="/dist/build.js"></script>
+
+    <script >
+
+var BASEURL=  location.pathname;
+
+var a = document.getElementById("build")
+alert("A", a)
+    </script>
+    <script id="build" src="/downloads/visual/dist/build.js"></script>
   </body>
 </html>

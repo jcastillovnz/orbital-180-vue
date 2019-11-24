@@ -3,7 +3,7 @@
 
 <router-view class="view"></router-view>
 <div class="turn-message"> 
-<img   width="100" src="./assets/imgs/icons/turn.svg"> 
+<img   width="100" src="/dist/turn.svg"> 
 </div>
 
 
