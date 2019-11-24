@@ -1,17 +1,22 @@
 <template>
 <div class="">
-<div class="turn-message"> 
-<img   width="100" src="./../assets/imgs/icons/turn.svg"> 
+<div class="turn-message dsddd"> 
+
+<img   width="100" :src="base+'dist/turn.svg'"> 
 </div>
 </div>
 </template>
 
 <script>
+import config from './../config'
+
+const {base} = config
+
 export default {
 name:'Turn',
   data () {
     return {
-
+base:base,
     }
   }
 }

@@ -2,10 +2,7 @@
 <div >
 
 <router-view class="view"></router-view>
-<div class="turn-message"> 
-<img   width="100" src="/dist/turn.svg"> 
-</div>
-
+ <Turn/>
 
 </div>
 
@@ -15,9 +12,21 @@
 @import './assets/css/index.css';
 </style>
 <script>
-import Turn from './components/Turn.vue'
+var BASEURL=  location.pathname;
+
+import Turn from  './components/Turn.vue'
+import Loader from './components/Loader.vue'
 export default {
   name: "App",
+      components: {
+Turn,
+Loader,
+  },
+    data() {
+    return {
+     base: BASEURL
+    };
+  }
 };
 </script>
 

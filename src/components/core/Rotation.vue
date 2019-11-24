@@ -28,7 +28,6 @@
 import  config from "./../../config";
 import Preload from "./Preload.js";
 import Interface from "./Interface.vue";
-import loaderComponent from "./../loaderComponent";
 const {infinite, buttons} = config
 
 export default {
