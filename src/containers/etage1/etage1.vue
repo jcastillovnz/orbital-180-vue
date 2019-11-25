@@ -13,11 +13,13 @@
 
 import Vue from 'vue'
 import Rotation from "./../../components/core/Rotation";
+import Loader from "./../../components/Loader"
 import images from "./images";
 export default {
   name: "Etage1",
   components: {
-Rotation
+Rotation, 
+Loader,
   },
   data() {
     return {

@@ -15,8 +15,11 @@
         @touchmove="handleTouchMove"
       />
     </div>
-
 <Interface v-show="buttonsGroup===true" @next="next"  @prev="prev"  :spinner="spinner" :infinite="infinite"/>
+
+
+<Loader v-show="imagesPreloaded===false"> </Loader> 
+
 
   </div>
 
@@ -24,7 +27,7 @@
 </div>
 </template>
 <script>
-
+import Loader from './../Loader'
 import  config from "./../../config";
 import Preload from "./Preload.js";
 import Interface from "./Interface.vue";
@@ -32,8 +35,10 @@ const {infinite, buttons} = config
 
 export default {
   name: "Rotation",
+
     components: {
-Interface
+Interface,
+Loader
   },
 
   props: {
@@ -77,6 +82,7 @@ Interface
         size: 0,
         currentPath: null
       },
+      loader:'',
       mouse: {
         isMoving: false
       },
@@ -92,6 +98,7 @@ Interface
   },
 
   mounted() {
+    this.loader = false;
     this.$refs.componentContainer.addEventListener(
       "mousewheel",
       this.handleWheel,
@@ -125,6 +132,7 @@ Interface
   },
 
   created() {
+    this.loader = true;
     this.spinner.size = this.images.length;
     this.spinner.currentPath = this.images[0];
   },

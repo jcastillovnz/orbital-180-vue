@@ -1,6 +1,6 @@
 <template>
 
-<div class="container">sdfdsfsdffds
+<div class="container" >
 <div class="loader center">
 </div>
 </div>
@@ -20,32 +20,29 @@ name:'Loader',
 <style>
 
 .container{
-  position: relative;
-   
+
+ 
 }
 
 
 .center {
-  
   position: absolute;
-  top: 50%;
+  top: 45%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
 .loader {
-
   height: 100px;
   padding: 20px;
-  left: 43%;
-
+  left: 46%;
   margin:auto;
   border:3px solid #f3f3f3;
   border-radius: 50%;
   border-top: 3px solid #3498db;
   width: 20px;
   height: 20px;
-  -webkit-animation: spin 2s linear infinite; /* Safari */
-  animation: spin 2s linear infinite;
+  -webkit-animation: spin 1s linear infinite; /* Safari */
+  animation: spin 1s linear infinite;
 }
 
 /* Safari */
