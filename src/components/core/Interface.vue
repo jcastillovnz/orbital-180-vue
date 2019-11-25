@@ -43,7 +43,9 @@ export default {
     return {
       imagesPreloaded: false,
       zoom: {
-       height:99
+       height:99,
+       currentheight:0,
+       newheight:0,
       }
   
     };
@@ -60,12 +62,12 @@ this.changeZoom(-10);
 },
 changeZoom(amount) { 
 
-var currheight = document.querySelector('.renders').height;
-if (currheight === 600  ) return false;
+this.zoom.currentheight = document.querySelector('.renders').height;
+if (this.zoom.currentheight === 600  ) return false;
   else {
 
-var newheight =  parseInt(currheight)  + amount;
-document.querySelector('.renders').style.height = newheight +'px';
+this.zoom.newheight =  parseInt(this.zoom.currentheight)  + amount;
+document.querySelector('.renders').style.height = this.zoom.newheight +'px';
 
   }
 
