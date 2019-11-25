@@ -22,6 +22,9 @@
 
 <script>
 
+import config from './../../config/';
+const {amount} = config;
+
 export default {
   name: "Interface",
 
@@ -46,6 +49,7 @@ export default {
        height:99,
        currentheight:0,
        newheight:0,
+       amount:amount,
       }
   
     };
@@ -54,10 +58,10 @@ export default {
 
   zoomIn(n) { 
 
-this.changeZoom(10);
+this.changeZoom(this.zoom.amount);
 },
   zoomOut(n) { 
-this.changeZoom(-10);
+this.changeZoom(-this.zoom.amount);
 
 },
 changeZoom(amount) { 
