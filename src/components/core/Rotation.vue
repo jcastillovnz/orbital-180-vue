@@ -15,13 +15,13 @@
         @touchmove="handleTouchMove"
       />
     </div>
-<Interface v-show="buttonsGroup===true" @next="next"  @prev="prev"  :spinner="spinner" :infinite="infinite"/>
 
 
 <Loader v-show="imagesPreloaded===false"> </Loader> 
 
 
   </div>
+<Interface v-show="buttonsGroup===true" @next="next"  @prev="prev"  :spinner="spinner" :infinite="infinite"/>
 
 
 </div>
