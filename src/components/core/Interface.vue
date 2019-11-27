@@ -12,15 +12,18 @@
 -
 </button>
 <button style="pointer-events: auto;" @click="zoomIn(spinner.current - 1)" >
-+
+<i class="fas fa-search-plus"></i>
 </button>
 
 </div>
  </div>
 
 </template>
-
+<style scoped>
+@import "~font-awesome/css/font-awesome.css";
+</style>
 <script>
+
 
 import config from './../../config/';
 const {amount} = config;

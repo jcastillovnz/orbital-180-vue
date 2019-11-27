@@ -1,5 +1,5 @@
 <template>
-<div>
+<div >
   <div class="container-wrapper" ref="componentContainer">
     <div class="container" v-if="imagesPreloaded">
       <img class="img-frames renders"
@@ -272,3 +272,9 @@ this.spinner.currentPath = this.images[n - 1];
   }
 };
 </script>
+<style scoped>
+.container-wrapper{
+background-color: aqua;
+/* position:absolute; */
+}
+</style>
