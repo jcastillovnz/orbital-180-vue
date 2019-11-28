@@ -12,7 +12,7 @@
 -
 </button>
 <button style="pointer-events: auto;" @click="zoomIn(spinner.current - 1)" >
-<i class="fas fa-search-plus"></i>
++
 </button>
 
 </div>
@@ -20,7 +20,7 @@
 
 </template>
 <style scoped>
-@import "~font-awesome/css/font-awesome.css";
+
 </style>
 <script>
 
