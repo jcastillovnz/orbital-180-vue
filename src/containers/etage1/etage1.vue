@@ -1,6 +1,6 @@
 <template>
 <div >
- <Rotation   :images="imgs"  :mouseWheel="false" :speed="1" :slider="true">
+ <Rotation   :images="imgs"  :mouseWheel="false" >
 
 </Rotation>  
 

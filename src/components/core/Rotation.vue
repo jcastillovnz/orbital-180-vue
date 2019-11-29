@@ -18,9 +18,9 @@
 
 
 <Loader v-show="imagesPreloaded===false"> </Loader> 
-
-
   </div>
+
+
 <Interface v-show="buttonsGroup===true" @next="next"  @prev="prev"  :spinner="spinner" :infinite="infinite"/>
 
 
@@ -31,7 +31,7 @@ import Loader from './../Loader'
 import  config from "./../../config";
 import Preload from "./Preload.js";
 import Interface from "./Interface.vue";
-const {infinite, buttons} = config
+const {infinite, buttons, speed, directionInverse} = config
 
 export default {
   name: "Rotation",
@@ -50,6 +50,16 @@ Loader
       type: Boolean,
       required: false,
       default: () => infinite
+    },
+       speed: {
+      type: Number,
+      required: false,
+      default: () => speed
+    },
+  directionInverse: {
+      type: Number,
+      required: false,
+      default: () =>directionInverse
     },
     touchDrag: {
       type: Boolean,
@@ -77,6 +87,8 @@ Loader
   data() {
     return {
       imagesPreloaded: false,
+      speedController: 0,
+
       spinner: {
         current: 0,
         size: 0,
@@ -98,7 +110,13 @@ Loader
   },
 
   mounted() {
-    this.loader = false;
+  this.loader = false;
+if( this.directionInverse){
+  var calculo = this.images.length / 2
+  var parseToInt =  parseInt(calculo)
+  this.spinner.current = parseToInt;
+  console.log(this.spinner.current)
+}
     this.$refs.componentContainer.addEventListener(
       "mousewheel",
       this.handleWheel,
@@ -132,9 +150,17 @@ Loader
   },
 
   created() {
-    this.loader = true;
-    this.spinner.size = this.images.length;
-    this.spinner.currentPath = this.images[0];
+this.loader = true;
+this.spinner.size = this.images.length;
+this.spinner.currentPath = this.images[0]; 
+console.log(this.directionInverse)
+
+
+
+
+
+
+
   },
 
   methods: {
@@ -155,46 +181,10 @@ Loader
       this.spinner.currentPath = this.images[event.target.value - 1];
     },
 next() {
-var n = this.spinner.current + 1
-if(this.infinite===true) {
-
-if(this.spinner.current< this.spinner.size ) {
-this.spinner.current = parseInt(n);
-this.spinner.currentPath = this.images[n - 1];
-}else{
-this.spinner.current =1
-this.spinner.currentPath = this.images[1 - 1]
-}
- }
-if(this.infinite===false)  {
-if( this.spinner.current<this.spinner.size  ) {
-this.spinner.current = parseInt(n);
-this.spinner.currentPath = this.images[n - 1];
-}
-}
+  this.directionInverse? this.nextFrame(): this.prevFrame()
 },
 prev() {
-
-var n = this.spinner.current - 1
-if(this.infinite===true) {
-if(this.spinner.current>1 ) {
-this.spinner.current = parseInt(n);
-this.spinner.currentPath = this.images[n - 1];
-}
-else{
-this.spinner.current = 30
-this.spinner.currentPath = this.images[30 - 1]
-}
- }
-
-if(this.infinite===false)  {
-
-if( this.spinner.current> 1  ) {
-this.spinner.current = parseInt(n);
-this.spinner.currentPath = this.images[n - 1];
-}
-}
-
+ this.directionInverse? this.prevFrame(): this.nextFrame()
     },
 
 
@@ -235,13 +225,7 @@ this.spinner.currentPath = this.images[n - 1];
         this.handleMovement(event.deltaY);
       }
     },
-
-    handleMovement(delta) {
-
-      /**
-       * Avanza
-       */
-      if (delta >= 0) {
+  nextFrame(delta) {
         if (
           this.spinner.current >= 0 &&
           this.spinner.current < this.spinner.size
@@ -254,11 +238,10 @@ this.spinner.currentPath = this.images[n - 1];
             this.spinner.currentPath = this.images[this.spinner.current - 1];
           }
         }
-      } else {
-        /**
-         * Retrocede
-         */
-        if (this.spinner.current >= 0 && this.spinner.current - 1 > 0) {
+
+    },
+      prevFrame(delta) {
+ if (this.spinner.current >= 0 && this.spinner.current - 1 > 0) {
           this.spinner.current--;
           this.spinner.currentPath = this.images[this.spinner.current - 1];
         } else {
@@ -266,7 +249,34 @@ this.spinner.currentPath = this.images[n - 1];
             this.spinner.current = this.spinner.size;
             this.spinner.currentPath = this.images[this.spinner.current - 1];
           }
-        }
+        } 
+
+    },
+handleMovement(delta) {
+
+      this.speedController++;
+      if (this.speedController < this.speed) {
+        return;
+      }
+      if (this.speedController > this.speed) {
+        this.speedController = 0;
+      }
+      if (delta >= 0) {
+        /**
+         * El usuario avanza
+         */
+     this.directionInverse? this.prevFrame(): this.nextFrame()
+ 
+
+      } else {
+        /**
+         * El usuario retrocede
+         */
+
+     this.directionInverse? this.nextFrame(): this.prevFrame()
+ 
+        /* this.prevFrame(); */
+
       }
     }
   }

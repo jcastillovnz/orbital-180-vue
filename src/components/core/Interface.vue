@@ -1,10 +1,10 @@
 <template>
  <div style="margin-left:-10%" class="container-control">
 <div class="btn-group" >
-<button style="pointer-events: auto;" @click="prev()" >
+<button style="pointer-events: auto;"   @click="next()"   >
  <
 </button>
-<button style="pointer-events: auto;"  @click="next()  "  >
+<button style="pointer-events: auto;"   @click="prev()" >
 > 
 </button>
 
