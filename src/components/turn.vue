@@ -1,7 +1,7 @@
 <template>
 <div class="">
 <div class="turn-message"> 
-<img   width="200" :src="base+'dist/turn.png'"> 
+<img   width="150" :src="base+'dist/turn-mobile.svg'"> 
 </div>
 </div>
 </template>
