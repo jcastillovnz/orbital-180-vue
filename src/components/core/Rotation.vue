@@ -115,7 +115,6 @@ if( this.directionInverse){
   var calculo = this.images.length / 2
   var parseToInt =  parseInt(calculo)
   this.spinner.current = parseToInt;
-  console.log(this.spinner.current)
 }
     this.$refs.componentContainer.addEventListener(
       "mousewheel",
