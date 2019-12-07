@@ -12,7 +12,7 @@
 <script>
 
 import Vue from 'vue'
-import Rotation from "./../../components/core/Rotation";
+import Rotation from "../core/Rotation";
 import Loader from "./../../components/Loader"
 import images from "./images";
 export default {

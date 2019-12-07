@@ -27,7 +27,7 @@
 </div>
 </template>
 <script>
-import Loader from './../Loader'
+import Loader from './../../components/Loader'
 import  config from "./../../config";
 import Preload from "./Preload.js";
 import Interface from "./Interface.vue";
