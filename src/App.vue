@@ -1,7 +1,7 @@
 <template>
 <div >
- <Loader/>
- <router-view class="view"></router-view>
+
+ <Dashboard/>
  <Turn/>
 
 
@@ -14,13 +14,14 @@
 </style>
 <script>
 var BASEURL=  location.pathname;
-
+import Dashboard from  './containers/Dashboard/Dashboard'
 import Turn from  './components/Turn.vue'
 
 export default {
   name: "App",
       components: {
 Turn,
+Dashboard
 
   },
 
@@ -31,4 +32,7 @@ Turn,
   }
 };
 </script>
+<style lang="css">
+body {overflow-y:hidden!important;}
+</style>
 

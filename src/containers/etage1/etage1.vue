@@ -1,5 +1,5 @@
 <template>
-<div >
+<div  scrolling="no">
  <Rotation   :images="imgs"  :mouseWheel="false" >
 
 </Rotation>  

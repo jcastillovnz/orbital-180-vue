@@ -3,7 +3,7 @@ var BASEURL=  location.pathname;
 const config = {
 base:BASEURL,
 imgs: 30,        ///Numero de imagenes
-infinite:false, //Giro infinito   Booleano
+infinite:true, //Giro infinito   Booleano
 buttons:true,  //Mostrar botones Booleano
 directionInverse:true,   //Direccion de rotacion Booleano
 speed:2,     // sensibilidad de velocidad de rotacion 
