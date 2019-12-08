@@ -1,7 +1,6 @@
 <template>
 <div >
   <div class="container-wrapper" ref="componentContainer">
-    <div class="container" v-if="imagesPreloaded">
       <img class="img-frames renders"
         tabindex="1"
         draggable="false"
@@ -282,8 +281,19 @@ handleMovement(delta) {
 };
 </script>
 <style scoped>
+
 .container-wrapper{
-background-color: aqua;
+/* background-color: aqua;
+/* position:absolute; */
+  display: block;
+}
+.container{
+
+overflow: visible
+
+/* overflow-y:hidden!important;
+scroll-behavior: auto; */
 /* position:absolute; */
 }
+
 </style>

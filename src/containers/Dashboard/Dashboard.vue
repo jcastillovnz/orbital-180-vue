@@ -15,109 +15,9 @@
     </div>
 
 
-    <div class="container-filter">
-      <div class="filter row" id="legend">
-        <div class="legend-col-2">
-       
-
-
-        </div>
-
-        <div class="legend-col-1">
-       
-       
-        </div>
-      </div>
-
-      <div class="filter" id="name">
-        <div class="filter-title">
-          <h2>RESIDENCE</h2>
-        </div>
-
-     
-        <div class="filter-button">
-          <a >
-            <button class="button large active"> 
-     Montigny
-            </button>
-          </a>
-        </div>
-
-
-
-      </div>
-
-      <div class="filter" id="building">
-        <div class="filter-title">
-          <h2>IMMEUBLE</h2>
-        </div>
-        <div class="filter-button" id="button-building">
-
-          <a href="#">
-            <button class="button small active"> 
-              A
-            </button>
-          </a>
-
-          <a href="#">
-            <button class="button small"> 
-              B
-            </button>
-          </a>
-
-          <a href="#">
-            <button class="button small"> 
-              C
-            </button>
-          </a>
-        </div>
-      </div>
-
-      <div class="filter" id="view">
-        <div class="filter-title">
-          <h2>VUES</h2>
-        </div>
-        <div class="filter-button">
-
-
-
-            <button id="aerienne" onclick="roof(this)"  class="nav-link button large active"> 
-              Aérienne
-            </button>
-         
-
-            <button  id="pietonne" onclick="pedestrian(this)"  class="nav-link button large"> 
-              Piétonne
-            </button>
-          
-
-
-          
-        </div>
-
-      </div>
-
-      <div class="filter" id="floor">
-        <div class="filter-title">
-          <h2>NIVEAUX</h2>
-        </div>
-        <div id="myDIV" class="filter-button">
-
-
-        
-            <button id="1" onclick="r1(this)" class="nav-link button large"> 
-              1<sup>e</sup> Étage
-            </button>
-      
-
-        
-            <button id="rdc" onclick="rdc(this)" class="nav-link button large"> 
-              Rdc
-            </button>
-        
-        </div>
-      </div>
-    </div>
+<!--    <div class="container-filter">
+  MENU
+    </div>  -->
 
   </div>
 
@@ -143,7 +43,7 @@ Etage1,
 </script>
 
 <style lang="css">
-body { overflow-y:hidden!important;}
+body { overflow: visible!important;}
 .container-view{
     display:flex;
     flex-direction: column;
@@ -151,6 +51,7 @@ body { overflow-y:hidden!important;}
     justify-content: space-between;
     align-items:center;
     width:calc(100% - 300px);
+    height: 100vh;
     z-index:1;
     padding-top:15px;
     padding-bottom:15px;
@@ -596,23 +497,25 @@ button:hover{
     flex-wrap: nowrap;
     align-content: flex-start;
     justify-content:space-between;
-    width:100%;
+    height:100%;
     overflow: hidden;
     background-color: var(--background-color);
     z-index:1;
+    background-colo:yellow;
 
 }
 
 .container-view{
+     background-color:blue;
     display:flex;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items:center;
-    width:calc(100% - 260px);
+    width:calc(100% - 100px);
     z-index:1;
-    padding-top:15px;
-    padding-bottom:15px;
+  padding-top:15px;
+    padding-bottom:15px; 
     padding-left:25px;
     padding-right:25px;
 }
@@ -621,13 +524,15 @@ button:hover{
     background-color: red;
     position: relative;
     align-self: flex-start;
-    width:calc(100% - 0px);
-    height:100%;
+/*    width:calc(100% - 0px); 
+    height:100%; */
+    height:180%;
     z-index: 5;
     cursor: pointer;;
-    overflow:hidden;
-    overflow-y:hidden;
+    overflow-y:visible;
     overflow-x:hidden;
+
+  
 }
 
 .controller-bar{
@@ -647,15 +552,12 @@ button:hover{
     justify-content: space-between ;
 }
 
-
-
-
 .container-filter{
-    width: 260px;
+    width: 80px;
     overflow-y: scroll;
     height: auto;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     padding-left: 25px;
     padding-right: 25px;
     background-color: var(--background-color);
@@ -861,8 +763,8 @@ h2#debug {
         flex-direction: column;
         flex-wrap: nowrap;
         justify-content: space-between;
-        width:calc(100% - 100px - 30px); /* 30px is the padding-left/right of container-fluid | 100px is the width of container filter */
-        height: calc(100vh - 50px - 2vh);
+        width:100%; /* 30px is the padding-left/right of container-fluid | 100px is the width of container filter */
+        height: auto;
         padding-left:15px;
         padding-right:15px;
         padding-bottom:10px;
@@ -963,7 +865,7 @@ h2#debug {
 
     .container{
         height:calc(100vh - 100px - 2vh);
-        overflow-y: scroll;
+        overflow-y: hidden;
     }
 
     .container-view{
