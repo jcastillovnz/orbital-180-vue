@@ -2,10 +2,10 @@
 <div >
 
 
-  <div class="container">
+  <div class="">
 
 
-    <div class="container-view">
+    <div class="">
    
       <div  class="windows">
         <!-- PUT THE 3D MODEL HERE -->
@@ -44,20 +44,7 @@ Etage1,
 
 <style lang="css">
 body { overflow: visible!important;}
-.container-view{
-    display:flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items:center;
-    width:calc(100% - 300px);
-    height: 100vh;
-    z-index:1;
-    padding-top:15px;
-    padding-bottom:15px;
-    padding-left:25px;
-    padding-right:25px;
-}
+
 body {
   margin: 0;
 }
@@ -501,7 +488,7 @@ button:hover{
     overflow: hidden;
     background-color: var(--background-color);
     z-index:1;
-    background-colo:yellow;
+    background-color:yellow;
 
 }
 
@@ -521,16 +508,17 @@ button:hover{
 }
 
 .windows{
+margin-top: 5vh;
+margin-bottom: 5vh;
     background-color: red;
     position: relative;
     align-self: flex-start;
-/*    width:calc(100% - 0px); 
-    height:100%; */
-    height:180%;
+ height:90vh; 
+
     z-index: 5;
     cursor: pointer;;
     overflow-y:visible;
-    overflow-x:hidden;
+    overflow-x:visible;
 
   
 }
