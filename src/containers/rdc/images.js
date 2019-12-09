@@ -4,7 +4,7 @@ const {imgs} = config
 
 const images = [...Array(imgs)].map(
   (_, i) =>
-    `./dist/imgs/r1/renders/${i}.jpg`
+    `./dist/imgs/rdc/renders/${i}.jpg`
 );
 
 

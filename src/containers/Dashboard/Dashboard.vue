@@ -2,22 +2,41 @@
 <div >
 
 
-  <div class="">
+  <div class="container">
 
-
-    <div class="">
-   
-      <div  class="windows">
-        <!-- PUT THE 3D MODEL HERE -->
-<Etage1 />
-
-      </div>
-    </div>
-
-
-<!--    <div class="container-filter">
+   <div class="container-filter">
+<center>
+       <h1> 
   MENU
-    </div>  -->
+       </h1>
+
+</center>
+<ul>
+<li>
+Pedestrian
+</li>
+<router-link tag="li" :to="{ path: 'etage1' }">Etage 1</router-link>
+
+<router-link tag="li" :to="{ path: 'etage2' }">Rdc</router-link>
+<router-link tag="li" :to="{ path: 'etage3' }">Etage 3</router-link>
+<li>
+Roof
+</li>
+</ul>
+
+</div>  
+<div class="container-view">
+
+<div  class="windows">
+    
+<router-view style="cursor: pointer" ></router-view>
+
+
+</div>
+</div>
+
+
+
 
   </div>
 
@@ -43,133 +62,9 @@ Etage1,
 </script>
 
 <style lang="css">
-body { overflow: visible!important;}
-
-body {
-  margin: 0;
-}
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  width: 10%;
-  background-color: #f1f1f1;
-  position: fixed;
-  height: 100%;
-  overflow: auto;
-}
-
-li a {
-  display: block;
-  color: #000;
-  padding: 8px 16px;
-  text-decoration: none;
-}
-
-li a.active {
-  background-color: #4CAF50;
-  color: white;
-}
-
-li a:hover:not(.active) {
-  background-color: #555;
-  color: white;
-}
 
 
 
-
-@-webkit-keyframes blink {
-  0% {
-      opacity: 1;
-  }
-  49% {
-      opacity: 1;
-  }
-  50% {
-      opacity: 0;
-  }
-  100% {
-      opacity: 0;
-  }
-}
-@-moz-keyframes blink {
-  0% {
-      opacity: 1;
-  }
-  49% {
-      opacity: 1;
-  }
-  50% {
-      opacity: 0;
-  }
-  100% {
-      opacity: 0;
-  }
-}
-@-o-keyframes blink {
-  0% {
-      opacity: 1;
-  }
-  49% {
-      opacity: 1;
-  }
-  50% {
-      opacity: 0;
-  }
-  100% {
-      opacity: 0;
-  }
-}
-
-.btn-group {
-
-
-  position:fixed;
-  bottom:0px;
-  left:0px;
-  right:0px;
-  height:50px;
-  margin-bottom:0px;
-
-}
-
-.tooltip {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black;
-}
-
-.tooltip .tooltiptext {
-   
-    max-width:100px;
-    padding:15px;
-    min-height:30px;
-    background:#fff;
-    visibility: hidden;
-    border: 1px solid black;
-    color: #000;
-    text-align: center;
-    border-radius: 6px;
-    /* Position the tooltip */
-    position: absolute;
-    z-index: 1;
-    word-wrap:break-word;
-}
-
-.tooltip:hover .tooltiptext {
-    visibility: visible;
-}
-
-
-.center{
-position: relative;
-left: 50%;
-transform: translate(-50%, 0);
--ms-transform: translate(-50%, 0);
--webkit-transform: translate(-50%, 0);
-  }
 
 .renders{
 position: relative;
@@ -183,80 +78,6 @@ z-index: 0;
 
 
   }
-  .masks{
-
-    height:100%;
-    position: relative;
-    left: 50%;
-    bottom:50%;
-     top:-0%;
-
-    
-    
-    position: absolute;
-    visibility: visible;
-    display: block;
-    z-index: 1;
-    opacity:2; /* Opacidad 60% */
-    }
-    .hide {
-
-
- 
-      opacity:0; /* Opacidad 60% */
-      
-      
-  }
-  
-
-
-    .labels{
-      pointer-events: none;
-      height:100%;
-      position: relative;
-      left: 50%;
-      bottom:50%;
-       top:-0%;
-      position: absolute;
-      visibility: visible;
-      display: block;
-      z-index: 1;
-    
-      }
-  
-
-
-
-.threesixty-frame  {
-height:100%;
-visibility: visible;
- z-index: 0;
- position: absolute;
-}
-
-.highlights{
-  pointer-events: none;
-  height:100%;
-position: relative;
-left: 50%;
-bottom:50%;
- top:-0%;
-
-visibility: visible;
-position: absolute;
-z-index: 2;
-display: none;
-}
-
-
-.btn-group {
-z-index: 110;
-margin-top: 44%;
-width: 100%;
-justify-content: center;
-
-}
-
 
 
 @media only screen and (min-width: 2100px) {
@@ -289,38 +110,6 @@ margin: 0 auto;
 text-align: left; 
 }
 
-
-.vertical-align-center {
-    /* To center vertically */
-    display: table-cell;
-    vertical-align: middle;
-}
-.modal-content {
-    /* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
-    width:inherit;
-    height:inherit;
-    /* To center horizontally */
-    margin: 0 auto;
-}
-
-.controller{
-    display:flex;
-    justify-content: space-between ;
-}
-
-
-.control{
-    width:25px;
-    height:25px;
-    background-size: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin-left:5px;
-    margin-right:5px;
-    cursor:pointer;
-    -webkit-transition: background-image 0.7s; /* Safari */
-    transition: background-image 0.7s;
-}
 
 
 
@@ -488,12 +277,11 @@ button:hover{
     overflow: hidden;
     background-color: var(--background-color);
     z-index:1;
-    background-color:yellow;
 
 }
 
 .container-view{
-     background-color:blue;
+
     display:flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -510,7 +298,6 @@ button:hover{
 .windows{
 margin-top: 5vh;
 margin-bottom: 5vh;
-    background-color: red;
     position: relative;
     align-self: flex-start;
  height:90vh; 
@@ -541,13 +328,13 @@ margin-bottom: 5vh;
 }
 
 .container-filter{
+    
     width: 80px;
     overflow-y: scroll;
-    height: auto;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 25px;
-    padding-right: 25px;
+    padding-right: -225px;
     background-color: var(--background-color);
     box-shadow: 0px 0px 12px #888888;
     z-index: 50;
@@ -561,81 +348,6 @@ margin-bottom: 5vh;
     border-color: #575756;
     padding-top: 7px;
     padding-bottom: 12px;
-}
-
-#legend{
-    display:flex;
-    order:1;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-self: flex-start;
-    justify-content: center;
-    border-top:none;
-}
-
-#name{
-    order:2;
-}
-
-#building{
-    order:3;
-    display:none;
-}
-
-#view{
-    order:4;
-}
-
-#floor{
-    order:5;
-}
-
-.legend-col-1{
-    width:50%;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-self: flex-start;
-    justify-content: flex-start;
-}
-
-.type{
-    width:100%;
-    display:flex;
-    flex-direction: row;
-    flex-wrap:wrap;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-.type-color{
-    width:15px;
-    height:15px;
-}
-
-#color-studio{
-    background-color: var(--studio-color) !important;
-}
-
-#color-2piece{
-    background-color: var(--deux-piece-color) !important;
-}
-
-#color-3piece{
-    background-color: var(--trois-piece-color) !important;
-}
-
-#color-4piece{
-    background-color: var(--quatre-piece-color) !important;
-}
-
-#color-5piece{
-    background-color: var(--cinq-piece-color) !important;
-}
-
-.type-name{
-    width:50%;
-    margin-left:5px;
 }
 
 
@@ -888,8 +600,8 @@ h2#debug {
 
     .container-filter{
         position:relative;
-        width:220px;
-        height:calc(100vh - 100px - 2vh);
+        width:100px;
+        height:calc(100vh - 100px - 1vh);
         left:calc(100% - 220px);
         padding-top:3px;
         padding-bottom:15px;
@@ -983,9 +695,9 @@ h2#debug {
     }
 
     .container-filter{
-        width:260px;
-        height:auto;
-        left:calc(100% - 260px);
+        width:232px;
+        height:100%;
+        left:calc(100% - 232px);
         padding-top:15px;
         padding-bottom:15px;
         padding-left:25px;
@@ -993,11 +705,6 @@ h2#debug {
     }
 
 
-    h2#debug {
-        width: calc(100vw - 50px - 260px);
-        height: calc(100vh - 100px - 2vh);
-        left: 25px;
-    }
 
 }
 
