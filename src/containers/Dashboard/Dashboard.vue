@@ -12,16 +12,12 @@
 
 </center>
 <ul>
-<li>
-Pedestrian
-</li>
-<router-link tag="li" :to="{ path: 'etage1' }">Etage 1</router-link>
 
-<router-link tag="li" :to="{ path: 'etage2' }">Rdc</router-link>
-<router-link tag="li" :to="{ path: 'etage3' }">Etage 3</router-link>
-<li>
-Roof
-</li>
+<router-link tag="li" :to="{ path: '/' }">Arienne</router-link>
+<router-link tag="li" :to="{ path: 'pedestrian' }">Pietonne</router-link>
+<router-link tag="li" :to="{ path: 'etage1' }">1e Etage</router-link>
+<router-link tag="li" :to="{ path: 'rdc' }">Rdc</router-link>
+
 </ul>
 
 </div>  
