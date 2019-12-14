@@ -12,20 +12,24 @@
 
 </center>
 <ul>
-
-<router-link tag="li" :to="{ path: '/' }">Arienne</router-link>
-<router-link tag="li" :to="{ path: 'pedestrian' }">Pietonne</router-link>
-<router-link tag="li" :to="{ path: 'etage1' }">1e Etage</router-link>
-<router-link tag="li" :to="{ path: 'rdc' }">Rdc</router-link>
-
+<li v-for="tab in tabs"  v-bind:key="tab"  v-on:click="currentTab = tab.view"> {{tab.name}} </li>
 </ul>
 
 </div>  
 <div class="container-view">
 
 <div  class="windows">
-    
+<!--     
 <router-view style="cursor: pointer" ></router-view>
+ -->
+
+
+<keep-alive>
+    {{currentTabComponent}}
+  <component v-bind:is="currentTabComponent"></component>
+</keep-alive>
+
+
 
 
 </div>
@@ -43,7 +47,11 @@
 <script>
 
 import Vue from 'vue'
-import Etage1 from './../etage1/etage1'
+import Roof from './../roof/roof.vue' 
+import Etage1 from './../etage1/etage1.vue' 
+import Rdc from './../rdc/rdc.vue' 
+import Pedestrian from './../pedestrian/pedestrian.vue' 
+
 export default {
   name: "Dashboard",
   components: {
@@ -51,9 +59,26 @@ Etage1,
   },
   data() {
     return {
-      imgs: ''
+    imgs: '',
+    currentTab: 'Roof',
+    tabs: [
+    {name:'Roof', view:'Roof'},
+    {name:'Pedestrian', view:'Pedestrian'},
+    {name:'Etage1', view:'Etage1'},
+    {name:'Rdc', view:'Rdc'}
+    
+    ]
     };
   }
+,
+  computed: {
+    currentTabComponent: function () {
+      return this.currentTab.toLowerCase()
+    }
+  }
+
+
+
 };
 </script>
 
