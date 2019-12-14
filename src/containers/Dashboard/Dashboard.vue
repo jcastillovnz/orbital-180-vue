@@ -56,6 +56,9 @@ export default {
   name: "Dashboard",
   components: {
 Etage1,
+Roof,
+Rdc,
+Pedestrian,
   },
   data() {
     return {
