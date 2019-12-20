@@ -1,7 +1,8 @@
 <template>
 <div  scrolling="no">
- <Rotation   :images="imgs"  :mouseWheel="false" >
-</Rotation>  
+ <Rotation   :images="imgs"  :mouseWheel="false" />
+
+
 </div>
 </template>
 <script>

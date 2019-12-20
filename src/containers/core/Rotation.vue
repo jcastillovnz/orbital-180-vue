@@ -15,6 +15,12 @@
       />
     </div>
 
+<img class="mask" tabindex="1" draggable="false" :src="spinner.currentPath"/>
+   
+   
+   
+    </div>
+
 
 <Loader v-show="imagesPreloaded===false"> </Loader> 
   </div>
@@ -152,13 +158,6 @@ this.loader = true;
 this.spinner.size = this.images.length;
 this.spinner.currentPath = this.images[0]; 
 console.log(this.directionInverse)
-
-
-
-
-
-
-
   },
 
   methods: {

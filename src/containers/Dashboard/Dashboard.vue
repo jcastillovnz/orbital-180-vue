@@ -23,9 +23,7 @@
 <router-view style="cursor: pointer" ></router-view>
  -->
 
-
 <keep-alive>
-    {{currentTabComponent}}
   <component v-bind:is="currentTabComponent"></component>
 </keep-alive>
 
