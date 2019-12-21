@@ -124,6 +124,7 @@ Loader
 
   beforeMount() {
    Preload(this.images).then(() => (this.imagesPreloaded = true));
+   Preload(this.masks).then(() => (this.imagesPreloaded = true));
   },
 
   mounted() {
