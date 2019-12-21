@@ -1,6 +1,8 @@
 <template>
 <div  scrolling="no">
- <Rotation   :images="imgs"  :mouseWheel="false" />
+
+
+ <Rotation   :images="imgs" :masks="masks"  :mouseWheel="false" />
 </div>
 </template>
 
@@ -10,7 +12,7 @@
 import Vue from 'vue'
 import Rotation from "../core/Rotation";
 import Loader from "./../../components/Loader"
-import images from "./images";
+import {images, masks} from "./images";
 export default {
   name: "Etage1",
   components: {
@@ -19,7 +21,8 @@ Loader,
   },
   data() {
     return {
-      imgs: images
+      imgs: images,
+      masks:masks,
     };
   }
 };

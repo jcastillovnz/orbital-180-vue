@@ -1,5 +1,7 @@
 <template>
 <div >
+
+
   <div class="container-wrapper" ref="componentContainer">
       <img class="img-frames renders"
         tabindex="1"
@@ -13,23 +15,23 @@
         @touchend="handleTouchEnd"
         @touchmove="handleTouchMove"
       />
-    </div>
 
-<img class="mask" tabindex="1" draggable="false" :src="spinner.currentPath"/>
-   
-   
-   
-    </div>
+ <img  class="mask" tabindex="1" draggable="false" :src="spinner.currentPathMasks"/>
+    
+
+  
 
 
-<Loader v-show="imagesPreloaded===false"> </Loader> 
+  
+<Loader v-if="imagesPreloaded===false"> </Loader> 
   </div>
 
 
-<Interface v-show="buttonsGroup===true" @next="next"  @prev="prev"  :spinner="spinner" :infinite="infinite"/>
+<Interface v-if="buttonsGroup===true" @next="next"  @prev="prev"  :spinner="spinner" :infinite="infinite" />
 
 
 </div>
+
 </template>
 <script>
 import Loader from './../../components/Loader'
@@ -50,6 +52,15 @@ Loader
     images: {
       type: Array,
       required: true
+    },
+       masks: {
+      type: Array,
+      required: false,
+      default: () =>  null
+    },
+     highlights: {
+      type: Array,
+      required: false
     },
     infinite: {
       type: Boolean,
@@ -97,7 +108,8 @@ Loader
       spinner: {
         current: 0,
         size: 0,
-        currentPath: null
+        currentPath: null,
+        currentPathMasks:null,
       },
       loader:'',
       mouse: {
@@ -157,7 +169,7 @@ if( this.directionInverse){
 this.loader = true;
 this.spinner.size = this.images.length;
 this.spinner.currentPath = this.images[0]; 
-console.log(this.directionInverse)
+this.spinner.currentPathMasks = this.masks[0];
   },
 
   methods: {
@@ -166,7 +178,7 @@ console.log(this.directionInverse)
         event.preventDefault();
         this.handleMovement(1);
       }
-      if (event.keyCode === 37) {
+       if  (event.keyCode === 37) {
         event.preventDefault();
         this.handleMovement(-1);
       }
@@ -176,6 +188,7 @@ console.log(this.directionInverse)
 
       this.spinner.current = parseInt(event.target.value);
       this.spinner.currentPath = this.images[event.target.value - 1];
+      this.spinner.currentPathMasks = this.masks[event.target.value - 1]
     },
 next() {
   this.directionInverse? this.nextFrame(): this.prevFrame()
@@ -229,10 +242,13 @@ prev() {
         ) {
           this.spinner.current++;
           this.spinner.currentPath = this.images[this.spinner.current - 1];
+
+          this.spinner.currentPathMasks = this.masks[this.spinner.current - 1]
         } else {
           if (this.infinite) {
             this.spinner.current = 1;
             this.spinner.currentPath = this.images[this.spinner.current - 1];
+            this.spinner.currentPathMasks = this.masks[this.spinner.current - 1]
           }
         }
 
@@ -241,10 +257,12 @@ prev() {
  if (this.spinner.current >= 0 && this.spinner.current - 1 > 0) {
           this.spinner.current--;
           this.spinner.currentPath = this.images[this.spinner.current - 1];
+          this.spinner.currentPathMasks = this.masks[this.spinner.current - 1]
         } else {
           if (this.infinite) {
             this.spinner.current = this.spinner.size;
             this.spinner.currentPath = this.images[this.spinner.current - 1];
+            this.spinner.currentPathMasks = this.masks[this.spinner.current - 1]
           }
         } 
 

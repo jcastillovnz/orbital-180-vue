@@ -32,7 +32,7 @@ html{
         left: 50%;
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%); 
-        visibility: visible;
+      
         pointer-events: none;
     
     }
