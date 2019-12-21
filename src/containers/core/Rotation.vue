@@ -1,11 +1,10 @@
 <template>
 <div >
 
-
-  <div class="container-wrapper" ref="componentContainer">
-      <img class="img-frames renders"
-        tabindex="1"
-        draggable="false"
+<div class="container-wrapper" ref="componentContainer">
+      
+      
+<img class="img-frames renders" tabindex="1" draggable="false"
         :src="spinner.currentPath"
         @keydown="handleKeydown"
         @mouseup="handleMouseUp"
@@ -16,20 +15,10 @@
         @touchmove="handleTouchMove"
       />
 
- <img  class="mask" tabindex="1" draggable="false" :src="spinner.currentPathMasks"/>
-    
-
-  
-
-
-  
-<Loader v-if="imagesPreloaded===false"> </Loader> 
-  </div>
-
-
+<img v-if="masks" id="masks" @mousemove="detectColor"   class="mask" tabindex="1" draggable="false" :src="spinner.currentPathMasks"/>
+<Loader v-show="imagesPreloaded===false"/>
+</div>
 <Interface v-if="buttonsGroup===true" @next="next"  @prev="prev"  :spinner="spinner" :infinite="infinite" />
-
-
 </div>
 
 </template>
@@ -104,12 +93,12 @@ Loader
     return {
       imagesPreloaded: false,
       speedController: 0,
-
+      color: null,
       spinner: {
         current: 0,
         size: 0,
         currentPath: null,
-        currentPathMasks:null,
+        currentPathMasks: null,
       },
       loader:'',
       mouse: {
@@ -122,9 +111,11 @@ Loader
     };
   },
 
-  beforeMount() {
-   Preload(this.images).then(() => (this.imagesPreloaded = true));
-   Preload(this.masks).then(() => (this.imagesPreloaded = true));
+beforeMount() {
+Preload(this.images).then(() => (this.imagesPreloaded = true));
+  if(this.masks!= null) { 
+Preload(this.masks).then(() => (this.imagesPreloaded = true)); 
+  }
   },
 
   mounted() {
@@ -170,7 +161,9 @@ if( this.directionInverse){
 this.loader = true;
 this.spinner.size = this.images.length;
 this.spinner.currentPath = this.images[0]; 
-this.spinner.currentPathMasks = this.masks[0];
+ if(this.masks!= null) { 
+ this.spinner.currentPathMasks = this.masks[0]; 
+ }
   },
 
   methods: {
@@ -184,12 +177,50 @@ this.spinner.currentPathMasks = this.masks[0];
         this.handleMovement(-1);
       }
     },
+detectColor(e) { 
+
+    var img= document.getElementById('masks');
+
+
+    img.addEventListener('mousemove', function (e) {
+          let ctx;
+          console.log("EVENTO COLOR: ", e)
+          this.canvas = document.createElement('canvas');
+          this.canvas.width = this.width;
+          this.canvas.height = this.height;
+          ctx=this.canvas.getContext('2d');
+          ctx.drawImage(this, 0, 0, this.width, this.height);
+          ctx=this.canvas.getContext('2d');
+          const pixel = ctx.getImageData(e.offsetX, e.offsetY, 1, 1).data;
+          detectar_color(ctx,e,img);
+    });
+
+
+
+},
+detectar_color(ctx,e,img) {
+    ////DETECTAR COLORES
+    //Covierto Color RGBA a Hexadecimal
+const pixel = ctx.getImageData(e.offsetX, e.offsetY, 1, 1).data;
+
+    r=pixel[0] ;
+    g=pixel[1] ;
+    b=pixel[2] ;
+
+var componentToHex=(c)=> {
+        var hex = c.toString(16);
+        return hex.length == 1 ? "0" + hex : hex;
+    }
+
+
+  
+    },
 
     handleSlider(event) {
 
       this.spinner.current = parseInt(event.target.value);
       this.spinner.currentPath = this.images[event.target.value - 1];
-      this.spinner.currentPathMasks = this.masks[event.target.value - 1]
+      this.spinner.currentPathMasks = this.masks[event.target.value - 1] 
     },
 next() {
   this.directionInverse? this.nextFrame(): this.prevFrame()
@@ -208,9 +239,13 @@ prev() {
     },
 
     handleMouseMove(event) {
-      if (this.mouse.isMoving && this.mouseDrag) {
-        this.handleMovement(event.movementX);
+      if(this.masks) {  
+ this.detectColor()
       }
+   
+if (this.mouse.isMoving && this.mouseDrag) {
+        this.handleMovement(event.movementX);
+  }
     },
 
     handleTouchStart(event) {
@@ -244,12 +279,20 @@ prev() {
           this.spinner.current++;
           this.spinner.currentPath = this.images[this.spinner.current - 1];
 
-          this.spinner.currentPathMasks = this.masks[this.spinner.current - 1]
+ if(this.masks!= null) { 
+this.spinner.currentPathMasks = this.masks[this.spinner.current - 1]
+ }
+
+
         } else {
           if (this.infinite) {
             this.spinner.current = 1;
             this.spinner.currentPath = this.images[this.spinner.current - 1];
-            this.spinner.currentPathMasks = this.masks[this.spinner.current - 1]
+ if(this.masks!= null) { 
+ this.spinner.currentPathMasks = this.masks[this.spinner.current - 1] 
+ }
+
+
           }
         }
 
@@ -258,12 +301,18 @@ prev() {
  if (this.spinner.current >= 0 && this.spinner.current - 1 > 0) {
           this.spinner.current--;
           this.spinner.currentPath = this.images[this.spinner.current - 1];
-          this.spinner.currentPathMasks = this.masks[this.spinner.current - 1]
+
+ if(this.masks!= null) { 
+this.spinner.currentPathMasks = this.masks[this.spinner.current - 1]
+ }
+
         } else {
           if (this.infinite) {
             this.spinner.current = this.spinner.size;
             this.spinner.currentPath = this.images[this.spinner.current - 1];
-            this.spinner.currentPathMasks = this.masks[this.spinner.current - 1]
+    if(this.masks!= null) { 
+this.spinner.currentPathMasks = this.masks[this.spinner.current - 1]
+ }
           }
         } 
 
@@ -282,7 +331,6 @@ handleMovement(delta) {
          * El usuario avanza
          */
      this.directionInverse? this.prevFrame(): this.nextFrame()
- 
 
       } else {
         /**
@@ -290,8 +338,6 @@ handleMovement(delta) {
          */
 
      this.directionInverse? this.nextFrame(): this.prevFrame()
- 
-        /* this.prevFrame(); */
 
       }
     }
