@@ -7,7 +7,7 @@
    <div class="container-filter">
 <center>
        <h1> 
-  MENU
+  MENU {{$store.state.count}}
        </h1>
 
 </center>

@@ -2,7 +2,7 @@
 <div  scrolling="no">
 
 
- <Rotation   :images="imgs" :masks="masks"  :mouseWheel="false" />
+ <Rotation  :area="area"  :images="imgs" :masks="masks" :mouseWheel="false" />
 </div>
 </template>
 
@@ -24,6 +24,15 @@ Loader,
       imgs: images,
       masks:masks,
     };
+  },
+  methods : {
+
+ area: function (event) {
+
+alert("area")
+      }
+
+    
   }
 };
 </script>

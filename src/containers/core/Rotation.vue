@@ -1,8 +1,8 @@
 <template>
 <div >
-
+  
 <div class="container-wrapper" ref="componentContainer">
-      
+ 
       
 <img class="img-frames renders" tabindex="1" draggable="false"
         :src="spinner.currentPath"
@@ -17,7 +17,9 @@
 
 <img v-if="masks" id="masks" @mousemove="detectColor"   class="mask" tabindex="1" draggable="false" :src="spinner.currentPathMasks"/>
 <Loader v-show="imagesPreloaded===false"/>
+
 </div>
+
 <Interface v-if="buttonsGroup===true" @next="next"  @prev="prev"  :spinner="spinner" :infinite="infinite" />
 </div>
 
@@ -177,12 +179,11 @@ this.spinner.currentPath = this.images[0];
         this.handleMovement(-1);
       }
     },
-detectColor(e) { 
+detectColor() { 
 
-    var img= document.getElementById('masks');
-
-
-    img.addEventListener('mousemove', function (e) {
+var that  = this;
+var img= document.getElementById('masks');
+img.addEventListener('mousemove', function (e) {
           let ctx;
           console.log("EVENTO COLOR: ", e)
           this.canvas = document.createElement('canvas');
@@ -192,7 +193,8 @@ detectColor(e) {
           ctx.drawImage(this, 0, 0, this.width, this.height);
           ctx=this.canvas.getContext('2d');
           const pixel = ctx.getImageData(e.offsetX, e.offsetY, 1, 1).data;
-          detectar_color(ctx,e,img);
+          that.detectar_color(ctx,e,img);
+          this.color = ctx;
     });
 
 
@@ -203,9 +205,9 @@ detectar_color(ctx,e,img) {
     //Covierto Color RGBA a Hexadecimal
 const pixel = ctx.getImageData(e.offsetX, e.offsetY, 1, 1).data;
 
-    r=pixel[0] ;
-    g=pixel[1] ;
-    b=pixel[2] ;
+   var r=pixel[0] ;
+   var g=pixel[1] ;
+   var  b=pixel[2] ;
 
 var componentToHex=(c)=> {
         var hex = c.toString(16);
@@ -239,11 +241,9 @@ prev() {
     },
 
     handleMouseMove(event) {
-      if(this.masks) {  
- this.detectColor()
-      }
-   
+
 if (this.mouse.isMoving && this.mouseDrag) {
+
         this.handleMovement(event.movementX);
   }
     },
@@ -336,7 +336,6 @@ handleMovement(delta) {
         /**
          * El usuario retrocede
          */
-
      this.directionInverse? this.nextFrame(): this.prevFrame()
 
       }
