@@ -195,6 +195,9 @@ img.addEventListener('mousemove', function (e) {
           const pixel = ctx.getImageData(e.offsetX, e.offsetY, 1, 1).data;
           that.detectar_color(ctx,e,img);
           this.color = ctx;
+
+        that.$store.state.color = ctx; 
+    
     });
 
 
